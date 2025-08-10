@@ -1,8 +1,7 @@
 import axios from "axios";
-    const url="https://easytrip-production.up.railway.app/";
-const destination = async (setHomeDestination) => {
-    const { url } = useContext(StoreContext);
-  
+const url="https://easytrip-production.up.railway.app/";
+
+const destination = async (setHomeDestination) => {  
   try {
     const response = await axios.get(`${url}api/publicRoute/destinations`);
     // console.log(response.data);
