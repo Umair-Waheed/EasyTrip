@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useContext } from "react";
-import { StoreContext } from "./context/StoreContext.jsx";
+    const url="https://easytrip-production.up.railway.app/";
 const destination = async (setHomeDestination) => {
     const { url } = useContext(StoreContext);
   
