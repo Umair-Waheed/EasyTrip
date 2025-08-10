@@ -1,0 +1,96 @@
+/* color:"#1E2939" */
+/* <h1 className="text-3xl font-bold text-gray-800 mb-4 md:mb-0">Booking Management</h1> */
+
+/* Shared Background Styles */
+.background-container {
+  background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+.background-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* home Screen Styles */
+.home-content {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Login Button Styles */
+.login-button {
+  background-color: #1EBEB1;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.login-button:hover {
+  background-color: #1EBEB1ce;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);}
+
+/* Login Form Styles - Add these to your existing AdminLogin.css */
+.admin-login-form {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 640px) {
+  .home-content h1 {
+  font-size: 2rem;
+}
+
+.home-content p {
+  font-size: 0.75rem;
+}
+
+/* Login Button Styles */
+.login-button {
+
+  padding: 8px 12px;
+  font-size: 0.75rem;
+
+}
+}

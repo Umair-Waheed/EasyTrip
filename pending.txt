@@ -1,0 +1,29 @@
+1.fix logout then redirect to home
+2.correct parse picture of listings uing cloudinary
+
+
+
+320px: Small mobile devices.
+480px: Larger smartphones.
+768px: Tablets.
+1024px: Small desktops/laptops.
+1280px and above: Large desktops.
+
+
+
+1.procceed to payment/refund->show when date valid 
+
+
+
+1.card length
+2.searchbar
+3.notifications
+4.redirect after booking to dashboard
+5. payment button missing
+6.add service name in payment detail
+7.payment created message check for admin side
+8.payment release when user or provider confirm 
+9.remove toast on admin refund 
+10.status change on payment details card
+11.rating after service consumme
+12. review star not found change toast

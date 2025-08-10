@@ -1,0 +1,135 @@
+.find-interest-section{
+    margin-top: -80px;
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+.home_services_card{
+    margin: 20px 0px;
+    /* background-color: aqua; */
+    width: 100%;
+
+}
+.home_services_card h2{
+    margin: 25px 0px;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: poppins;
+    width:100%;
+
+}
+.home-card-container{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    overflow-x: auto;
+    user-select: none;
+    background-color: white;
+    margin: 0px 10px;
+    border-radius: 10px;
+    
+}
+.home-card-container::-webkit-scrollbar{
+    height: 1px;
+
+
+}
+
+
+.see_more_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.see_more{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5px;
+    border-radius: 10px;
+    margin-left: 10px;
+    border: 1px solid rgb(88, 88, 88);
+color: rgb(46, 46, 46);
+}
+.see_more button{
+    width: 90px;
+    font-weight: 500;
+    font-size: 15px
+}
+.see_more img{
+     width:20px;
+}
+
+.review{
+    padding-top: 25px;
+    position: relative;
+}
+.review h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.review-container{
+    margin-top: 40px;
+    width: 100%;
+    padding: 30px 0px;
+    display: flex;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* background-color: rgba(0, 0, 0, 0.719); */
+    border-radius: 10px;
+}
+
+.person-feedback{
+    flex:  0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.arrow-buttons {
+    position: absolute;
+    top: 50%;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.arrow-buttons button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    /* width: 100%; */
+    padding: 10px;
+    transition:  0.3s;
+}
+
+.arrow-buttons button:hover {
+    color: #1DB3A6; /* Change color on hover for better visual feedback */
+    transform: scale(1.1);
+}
+.web-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+@media only screen and (max-width: 640px) {
+    .home_services_card h2{
+    font-size: 20px;
+    font-weight: 600;
+
+    
+
+}
+}

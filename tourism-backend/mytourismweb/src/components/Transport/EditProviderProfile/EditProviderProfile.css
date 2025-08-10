@@ -1,0 +1,114 @@
+.transport-listing-container {
+    width: 100%;
+    padding: 1rem;
+    /* background-color: #f5f7fa; */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .transport-listing-form {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  .transport-listing-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #1EBEB1;
+    font-weight: 400;
+  }
+  .transport-listing-content input,select{
+    color: grey;
+  }
+  
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  legend {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1EBEB1;
+  }
+
+  .transport-listing-form div {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .transport-listing-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1EBEB1;
+  }
+  
+  .transport-listing-form input,
+  .transport-listing-form select,
+  .transport-listing-form textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fefefe;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .transport-listing-form input:focus,
+  .transport-listing-form select:focus,
+  .transport-listing-form textarea:focus {
+    outline: none;
+    border-color: #1EBEB1;
+  }
+  
+  .transport-listing-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .transport-listing-form button {
+    background-color: #1EBEB1;
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .transport-listing-form button:hover {
+    /* background-color: white;
+    color: #1EBEB1;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.253); */
+    background-color: #28d8c9;
+    transform: scale(1.01);
+}
+  
+  @media (max-width: 768px) {
+    .transport-listing-form {
+      padding: 1.5rem;
+    }
+  
+    .transport-listing-form h2 {
+      font-size: 1.5rem;
+    }
+  }
+  

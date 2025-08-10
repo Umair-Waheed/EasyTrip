@@ -1,0 +1,8 @@
+when no error occur and form submit and data not store in database then use this code when send data to backend beacause of type, array or overlapping array issue so use this code is best to send append data in form and then send formdata to backend
+Object.entries(destinationData).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach(item => formData.append(key, item));
+        } else {
+          formData.append(key, value);
+        }
+      });
