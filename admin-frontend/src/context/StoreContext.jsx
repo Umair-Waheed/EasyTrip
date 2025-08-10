@@ -5,7 +5,7 @@ import { fromURL, blobToURL } from 'image-resize-compress';
 export const StoreContext =createContext(null);
 const StoreContextProvider=(props)=>{
     const[token,setToken]=useState("");
-    const url="easytrip-production.up.railway.app/";
+    const url="https://easytrip-production.up.railway.app/";
     // const url="http://localhost:4000/";
 
 
