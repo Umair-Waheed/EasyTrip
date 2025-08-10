@@ -3,7 +3,6 @@ import "./transport.css";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import Card from "../../components/Card/Card.jsx";
 import { StoreContext } from "../../context/StoreContext.jsx";
-import CategoryCircle from "../../components/CategoryCircle/categoryCircle.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import axios from "axios";
 import { assets } from "../../assets/assets.js";
@@ -77,17 +76,7 @@ const transport = () => {
           />
         </div>
       </div>
-      {/* <div className="hotel-category-container">
-          <div className="hotel-category">
-            <CategoryCircle name={"Mountains"} img={assets.mountain_cat}  onClick={categoryHandler}  category={category}/>
-            <CategoryCircle name={"Nature & Wildlife"} img={assets.Wildlife_cat}  onClick={categoryHandler}  category={category}/>
-            <CategoryCircle name={"Adventure Spots"} img={assets.adventure_cat}  onClick={categoryHandler}  category={category}/>
-            <CategoryCircle name={"Historical transports"} img={assets.historical_cat}  onClick={categoryHandler}  category={category}/>
-            <CategoryCircle name={"Hiking"} img={assets.hiking_cat}  onClick={categoryHandler}  category={category}/>
-            <CategoryCircle name={"Water Spots"} img={assets.waterspot_cat}  onClick={categoryHandler}  category={category}/>
-            <CategoryCircle name={"Camping"} img={assets.camping_cat}  onClick={categoryHandler}  category={category}/>
-          </div>
-        </div> */}
+     
       <div className="transport-container px-20">
         <div className="transport-content-container">
           <h2>Transports</h2>
