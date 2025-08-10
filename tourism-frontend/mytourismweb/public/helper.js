@@ -1,7 +1,9 @@
 import axios from "axios";
-
+import { useContext } from "react";
+import { StoreContext } from "./context/StoreContext.jsx";
 const destination = async (setHomeDestination) => {
-  const url = "http://localhost:4000/";
+    const { url } = useContext(StoreContext);
+  
   try {
     const response = await axios.get(`${url}api/publicRoute/destinations`);
     // console.log(response.data);
@@ -17,7 +19,6 @@ const destination = async (setHomeDestination) => {
 };
 
 const transport = async (setHomeTransport) => {
-  const url = "http://localhost:4000/";
   try {
     const response = await axios.get(`${url}api/publicRoute/transports`);
     // console.log(response.data);
@@ -33,7 +34,6 @@ const transport = async (setHomeTransport) => {
 };
 
 const hotel = async (setHomeHotel) => {
-  const url = "http://localhost:4000/";
   try {
     const response = await axios.get(`${url}api/publicRoute/hotels`);
     // console.log(response.data);
@@ -48,7 +48,6 @@ const hotel = async (setHomeHotel) => {
   }
 };
 const guide = async (setHomeGuide) => {
-  const url = "http://localhost:4000/";
   try {
     const response = await axios.get(`${url}api/publicRoute/guides`);
     // console.log(response.data);
