@@ -6,7 +6,6 @@ export const StoreContext =createContext(null);
 const StoreContextProvider=(props)=>{
     const[token,setToken]=useState("");
     const url="https://easytrip-production.up.railway.app/";
-    // const url="http://localhost:4000/";
 
 
     //image resizer pkg
