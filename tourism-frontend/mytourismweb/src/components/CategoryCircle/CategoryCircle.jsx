@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./categoryCircle.css"
+import "./CategoryCircle.css"
 const CategoryCircle = ({img,name,onClick,category}) => {
     
     const clickHandler = () => {
