@@ -1,0 +1,106 @@
+
+.transport-hero-section{
+    height: 100vh;
+    background-color: aqua;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     background: rgba(0, 0, 0, 0.322);
+}
+.transport-hero-section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    
+}
+.transport-hero-section-content{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+    color: #ffffff;
+    animation: fadeIn 1.5s ease-in-out;
+}
+.transport-hero-section-content h2{
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+     opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInBottomToTop 1s ease-out forwards;
+    
+}
+@keyframes fadeInBottomToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Final position (original place) */
+  }}
+.transport-category-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+.transport-category{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    width: 85%;
+    padding: 10px;
+    z-index: 1;
+    background-color:rgb(243, 243, 243);
+    border-radius: 10px;
+    border: 1px solid #1EBEB1;
+    overflow: scroll;
+
+}
+.transport-category::-webkit-scrollbar{
+    display: none;
+}
+
+.transport-container{
+    width: 100%;
+}
+.transport-content-container h2{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.transport-content-container{
+        padding: 20px 20px;
+    
+}
+
+@media only screen and (max-width:640px){
+ .transport-hero-section-content h2{
+    font-size: 40px;
+}   
+.transport-content-container h2{
+    font-size: 26px;
+
+}
+.transport-container{
+    padding: 10px 20px;
+}
+
+.transport-hero-section,.transport-hero-section img{
+    height: 70vh;
+
+}
+}

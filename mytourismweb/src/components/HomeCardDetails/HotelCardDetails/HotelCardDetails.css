@@ -1,0 +1,205 @@
+.hotel-card-detail-container{
+    width: 100%;
+    position: relative;
+}
+.hotel-card-detail-navbar{
+    height: 20px;
+    
+}
+.hotel-card-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family:"poppins", sans-serif;
+    margin-top: 150px;
+    width: 100%;
+
+    /* border: 1px solid black; */
+}
+.detail-box {
+    background-color: #fdfdfd;
+    margin: 0.5rem 0;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    /* border:1px solid rgba(0, 0, 0, 0.034); */
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.178);
+  }
+/* .hotel-card-detail-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+} */
+.back-btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3px;
+    width: 80%;
+    
+    cursor: pointer;
+}
+.back-btn img{
+    width: 18px;
+}
+.back-btn p{
+    color: #000000;
+}
+.hotel-card-detail h2{
+    font-size: 32px;
+    font-weight:600 ;
+    color: #000000;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px); 
+    animation: fadeInBottomToTop 1s ease-out forwards; 
+
+}
+@keyframes fadeInBottomToTop {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Initial position (20px from bottom) */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Final position (original place) */
+  }}
+/* Slider image container */
+.card-detail-image-slider-container{
+    height: 450px ;
+    width: 70%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.767);
+}
+.card-detail-slider-image-wrapper {
+    height: 100%;
+    width: 100%;
+    /* border-radius: 15px; */
+    overflow: hidden;
+}
+.card-detail-slider-image-wrapper img{
+    height: 450px;
+    width: 100%;
+    display: block;
+    background-position: bottom;
+    /* border-radius: 15px; */
+    object-fit: cover !important;
+}
+
+.slick-dots {
+    bottom: 10px !important;
+  }
+  
+  .slick-dots li button:before {
+    color: #ffffff !important;
+    font-size: 10px !important;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #1EBEB1 !important;
+  }
+  
+
+.hotel-card-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    box-shadow: 0 3px 8px #00000080;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: -50px;
+    z-index: 1;
+    width:60%;
+    
+}
+
+.hotel-card-content p{
+    font-size: 14px;
+    text-transform: capitalize;
+
+}
+.hotel-card-content b{
+    font-size: 16px;
+}
+.hotel-card-content p i{
+    text-transform: capitalize;
+}
+.booknow-btn{
+    margin: 1rem;
+    background-Color: #1EBEB1;
+    color: white;
+    align-self: center;
+    width: 100%;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-Radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.booknow-btn:hover{
+    color: #1EBEB1;
+    background-color: white;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.363) ;
+
+}
+
+/* //Map */
+.hotel_detail-map{
+    width: 100%;
+  max-width:60%;
+  height: 550px;
+  margin: 50px auto 0;
+  
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* <=======review stylings=======> */
+
+.home-hotel-reviews-container{
+    width: 100%;
+    /* height: 300px; */
+    /* margin-top: 50px; */
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.home-hotel-show-review{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: 0 3px 8px #00000080; */
+    border: 1px solid rgb(216, 216, 216);
+    background-color: white;
+    border-radius: 10px;
+     padding: 10px 20px;
+    margin-bottom: 30px;
+}
+.home-hotel-reviews-container h2,h3{
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 30px;
+    
+}
+.home-hotel-add-review{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid rgb(216, 216, 216);
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
