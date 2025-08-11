@@ -89,10 +89,10 @@ const verifyEmail = async (req, res) => {
 return res.send(`
   <html>
     <body>
-      <p>Your email has been successfully verified. You will be redirected to the login page shortly... or close this window and login</p>
+      <p>Your email has been successfully verified. You will be redirected for login to the website shortly..., or close this window and login</p>
       <script>
         setTimeout(() => {
-          window.location.href = 'http://localhost:5173/user/login';
+          window.location.href = 'https://easy-trip-frontend-01.vercel.app/user/login';
         }, 4000);
       </script>
     </body>
