@@ -38,7 +38,7 @@ const userRegister=async(req,res)=>{
             const verifyToken = generateToken({ email, name, password }, process.env.JWT_SECRET, '10m');
 
         // Construct verification link
-    const verificationLink = `http://localhost:4000/api/user/verify-email/${verifyToken}`;
+    const verificationLink = `https://easytrip-production.up.railway.app/api/user/verify-email/${verifyToken}`;
 
     // Email content
     const emailContent = `
@@ -89,7 +89,7 @@ const verifyEmail = async (req, res) => {
 return res.send(`
   <html>
     <body>
-      <p>Your email has been successfully verified. You will be redirected to the login page shortly...</p>
+      <p>Your email has been successfully verified. You will be redirected to the login page shortly... or close this window and login</p>
       <script>
         setTimeout(() => {
           window.location.href = 'http://localhost:5173/user/login';
