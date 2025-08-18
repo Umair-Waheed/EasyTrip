@@ -2,9 +2,10 @@ import axios from "axios";
 const url="https://easytrip-production.up.railway.app/";
 
 const destination = async (setHomeDestination) => {  
+// let url="http://localhost:4000/"
+const destination = async (setHomeDestination) => {
   try {
     const response = await axios.get(`${url}api/publicRoute/destinations`);
-    // console.log(response.data);
 
     if (response.data.success) {
       console.log(response.data.destListings);
@@ -59,5 +60,6 @@ const guide = async (setHomeGuide) => {
     console.log(error);
   }
 };
+}
 
-export { destination, transport, hotel, guide };
+export { destination, transport, hotel, guide }

@@ -3,6 +3,10 @@ import "./hotel.css";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import Card from "../../components/Card/Card.jsx";
 import { StoreContext } from "../../context/StoreContext.jsx";
+<<<<<<< HEAD
+=======
+import CategoryCircle from "../../components/CategoryCircle/CategoryCircle.jsx";
+>>>>>>> ba7b751 (Save local changes before syncing)
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import axios from "axios";
 import { assets } from "../../assets/assets.js";

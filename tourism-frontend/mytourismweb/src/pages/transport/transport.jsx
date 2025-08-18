@@ -3,6 +3,7 @@ import "./transport.css";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import Card from "../../components/Card/Card.jsx";
 import { StoreContext } from "../../context/StoreContext.jsx";
+import CategoryCircle from "../../components/CategoryCircle/CategoryCircle.jsx";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import axios from "axios";
 import { assets } from "../../assets/assets.js";
