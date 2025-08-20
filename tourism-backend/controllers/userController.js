@@ -170,7 +170,7 @@ const forgotPassword = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    const resetUrl = `http://localhost:5173/reset-password/user/${resetToken}`;
+    const resetUrl = `https://easy-trip-frontend-01.vercel.app/reset-password/user/${resetToken}`;
 
     await sendEmail(
       user.email,
