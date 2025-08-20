@@ -59,7 +59,7 @@ const addListing = async (req, res)=>{
             
     
         await newHotelListing.save();
-        res.json({success:true,message:"Hotel listing created!"})
+        return res.json({success:true,message:"Hotel listing created!"})
 
     }catch(error){
         console.log(error);
@@ -133,10 +133,10 @@ const failedDeletes = req.failedDeletes || [];
       discountedPrice,
     };
     await listing.save();
-    res.json({success:true,message:"Listing updated successfully!"})
+    return res.json({success:true,message:"Listing updated successfully!"})
 
     }catch(error){
-        res.json({success:false,message:"Listing update error"});
+       return res.json({success:false,message:"Listing update error"});
     }
 };
 
@@ -149,7 +149,7 @@ const deleteListing=async(req,res)=>{
         // console.log(listing._id);
         
         if(!listing){
-            res.json({success:false,message:"Listing not found"});
+           return res.json({success:false,message:"Listing not found"});
         }
         
         const getProviderId=req.user.id.toString();
@@ -159,11 +159,11 @@ const deleteListing=async(req,res)=>{
         }
         await reviewModel.findOneAndDelete(listing.reviewOwner);
         await hotelListingModel.deleteOne({ _id: id });
-        res.json({success:true,message:"Listing delete successfully!"})
+        return res.json({success:true,message:"Listing delete successfully!"})
 
     }catch(error){
         console.log(error);
-        res.json({success:false,message:"Listing delete error"});
+        return res.json({success:false,message:"Listing delete error"});
     }
 }
 
@@ -178,10 +178,10 @@ const getAllListings = async (req, res) => {
             return res.json({ success: false, message: "No listing found" });
         }
 
-        res.json({ success: true, listing });
+        return res.json({ success: true, listing });
 
     } catch (error) {
-        res.json({ success: false, message:"Error in getting listings" });
+        return res.json({ success: false, message:"Error in getting listings" });
     }
 };
 
@@ -197,9 +197,9 @@ const getListingDetail = async (req, res) => {
             return res.json({ success: false, message: "listing not found" });
         }
 
-        res.json({ success: true, listing });
+        return res.json({ success: true, listing });
     } catch (error) {
-        res.json({ success: false, message:"Error in fetdhing details" });
+        return res.json({ success: false, message:"Error in fetdhing details" });
     }
 };
 

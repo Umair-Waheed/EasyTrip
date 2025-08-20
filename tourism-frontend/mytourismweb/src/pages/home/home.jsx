@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeCard from "../../components/HomeCard/HomeCard";
 import { assets } from "../../assets/assets.js";
+import axios from "axios";
+import { toast } from "react-toastify";
 import {
   destination,
   hotel,
@@ -11,11 +13,13 @@ import {
 } from "../../../public/helper.js";
 
 import Footer from "../../components/Footer/Footer.jsx";
-const home = () => {
+const home = ({url,token}) => {
   const [homeDestination, setHomeDestination] = useState([]);
   const [homeHotel, setHomeHotel] = useState([]);
   const [homeTransport, setHomeTransport] = useState([]);
   const [homeGuide, setHomeGuide] = useState([]);
+  const [providerdata,setProviderdata]=useState([]);
+
   const sliderRef = useRef(null);
   const [isMouseDown, setISMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -64,6 +68,43 @@ const home = () => {
     // console.log(homeDestination);
     console.log(homeTransport);
   }, []);
+
+  useEffect(() => {
+    const fetchProvider = async () => {
+      try {
+        let providerId = "";
+        if (token) {
+          const decodeToken = JSON.parse(atob(token.split(".")[1]));
+          providerId = decodeToken.id;
+        }
+  
+        if (!providerId) {
+          throw new Error("Provider ID not found in token");
+        }
+  
+        const response = await axios.get(
+          `${url}api/serviceprovider/${providerId}`,
+          {
+            headers: { authorization: `Bearer ${token}` },
+          }
+        );
+  
+        // const providerInfo = response.data.isProvider;
+        // setProviderdata(providerInfo);
+  
+        if (response.data.isProvider?.status === "rejected") {
+          toast.error(
+            "Your account was rejected. Please re-submit valid documents or contact support for assistance."
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching provider:", error);
+      }
+    };
+  
+    fetchProvider();
+  }, [token, url]); // run when token or url changes
+
   return (
     <div className="home ">
       <div className="home-container px-20">

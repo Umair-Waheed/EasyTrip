@@ -67,18 +67,18 @@ const getUserRefunds = async (req, res) => {
     const userId=req.user.id;
   try {
     const refunds = await refundModel.find({ userId});
-    res.json({success:true,refunds});
+   return res.json({success:true,refunds});
   } catch (error) {
-    res.json({ message: "Error fetching refunds", error });
+  return res.json({ message: "Error fetching refunds", error });
   }
 };
 
 const getAllRefunds = async (req, res) => {
   try {
     const refunds = await refundModel.find().populate('userId').populate('paymentId');
-    res.json({success:true,refunds});
+   return res.json({success:true,refunds});
   } catch (error) {
-    res.json({ message: "Error fetching all refunds", error });
+   return res.json({ message: "Error fetching all refunds", error });
   }
 };
 

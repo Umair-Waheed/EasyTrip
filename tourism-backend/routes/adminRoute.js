@@ -1,6 +1,5 @@
 import express from "express"
-import {adminLogin,getAdminData,adminSignOut,getUsersList,getuserDetail,deleteUser,
-} from "../controllers/adminController.js"
+import {adminLogin,getAdminData,adminSignOut,getUsersList,getuserDetail,deleteUser,getServiceProvider,updateProviderStatus} from "../controllers/adminController.js"
 import { verifyToken,isAdmin } from "../middlewares/authMiddleware.js";
 const adminRouter=express.Router();
 
@@ -13,7 +12,8 @@ adminRouter.get("/users/:userId/details",verifyToken,isAdmin,getuserDetail);
 // adminRouter.get('/:userId/bookings', verifyAdmin, getUserBookingHistory);
 adminRouter.delete("/users/:userId",verifyToken,isAdmin,deleteUser);
 
-// adminRouter.get("/service-providers",getServiceProviders);
+adminRouter.get("/serviceproviders",verifyToken,isAdmin,getServiceProvider);
+adminRouter.put("/serviceproviders/:id",verifyToken,isAdmin,updateProviderStatus);
 // adminRouter.get("/service-providers/:providerId/details",getServiceProviderDetail);
 // adminRouter.get("/service-providers/:providerId",deleteServiceProvider);
 

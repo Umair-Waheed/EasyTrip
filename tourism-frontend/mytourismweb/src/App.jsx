@@ -28,6 +28,9 @@ import "react-toastify/dist/ReactToastify.css";
 import AboutUs from "./pages/aboutUs.jsx";
 import TermsOfUse from "./pages/termsofuse.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy.jsx";
+import ProviderTermsConditions from "./pages/providerTermsConditions.jsx";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword.jsx";
+import ResetPassword from "./components/ResetPassword/ResetPassword.jsx";
 const App = () => {
   const { token, url } = useContext(StoreContext);
   const [login, setLogin] = useState(false);
@@ -56,6 +59,9 @@ const App = () => {
     fetchUnreadNotification();
   }, [token, url]);
   console.log(unreadNotications);
+
+
+
 
   return (
     <div>
@@ -88,6 +94,7 @@ const App = () => {
               setDarkMode={setDarkMode}
               unreadNotications={unreadNotications}
             />
+           
 
             {/* <Searchbar/> */}
             <div className="heroSection-text">
@@ -107,7 +114,7 @@ const App = () => {
         )}
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home url={url} token={token}/>} />
           <Route path="/destination" element={<Destination />} />
           <Route path="/hotel" element={<Hotel />} />
           <Route path="/transport" element={<Transport />} />
@@ -115,6 +122,9 @@ const App = () => {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/termsofuse" element={<TermsOfUse />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/providerterms&conditions" element={<ProviderTermsConditions />} />
+<Route path="/forgot-password/:role" element={<ForgotPassword url={url} />} />
+        <Route path="/reset-password/:role/:token" element={<ResetPassword url={url} />} />
 
           {token && (
             <Route

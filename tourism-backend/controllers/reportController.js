@@ -25,10 +25,10 @@ import { getAdminId } from "../utils/getAdminId.js";
     });
 
     await newReport.save();
-    res.json({ success: true, message: "Query sent successfully!" });
+   return res.json({ success: true, message: "Query sent successfully!" });
 
   } catch (err) {
-    res.json({ success: false, message: "Failed to send query." });
+   return res.json({ success: false, message: "Failed to send query." });
   }
 };
 const userReports=async(req,res)=>{
@@ -83,10 +83,10 @@ const userReports=async(req,res)=>{
     //   message: `Reply your query from EasyTrip: "${reportSubject}".`,
     // }
   );
-    res.json({ success: true, message: "Reply sent successfully." });
+   return res.json({ success: true, message: "Reply sent successfully." });
 
   } catch (err) {
-    res.json({ success: false, message: "Failed to send reply." });
+   return res.json({ success: false, message: "Failed to send reply." });
   }
 };
 
@@ -94,9 +94,9 @@ const userReports=async(req,res)=>{
   try {
     const reports = await reportModel.find();
     // console.log(reports)
-    res.json({ success: true, reports });
+   return res.json({ success: true, reports });
   } catch (err) {
-    res.json({ success: false, message: "Could not fetch reports." });
+   return res.json({ success: false, message: "Could not fetch reports." });
   }
 };
 

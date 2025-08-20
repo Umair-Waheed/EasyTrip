@@ -40,7 +40,7 @@ const createReview=async(req,res)=>{
     // res.redirect(`/destination/${id}`);  
     
    } catch (error) {
-    res.json({ success: false, message: "Server error, review not add!" });
+   return res.json({ success: false, message: "Server error, review not add!" });
     // res.redirect(`/destination/${id}`);  
    }   
 }
@@ -64,10 +64,10 @@ const getReviews = async (req, res) => {
           console.log("review call");
        
 
-        res.json({ success: true, reviews:listing.review });
+       return res.json({ success: true, reviews:listing.review });
     } catch (error) {
         console.error(error);
-        res.json({ success: false, message: "Internal server error!" });
+       return res.json({ success: false, message: "Internal server error!" });
     }
 };
 const destroyReview = async (req, res) => {

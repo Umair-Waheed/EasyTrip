@@ -26,6 +26,7 @@ import MoneyOffIcon from '@mui/icons-material/MoneyOff';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ReportIcon from '@mui/icons-material/ReportGmailerrorred';
+import ServiceProviders from '../../component/ServiceProviders/ServiceProviders.jsx' 
 import Report from '../../component/Reports/Report.jsx'
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -149,6 +150,7 @@ const formatPrice = (amount) => {
             <li className={activeTab === 'held-payment'? 'active-tab': ""} onClick={() => routeHandler('held-payment')}>Pending Transfers</li>
             <li className={activeTab === 'payment'? 'active-tab': ""} onClick={() => routeHandler('payment')}>Payments Details</li>
             <li className={activeTab === 'refunds'? 'active-tab': ""} onClick={() => routeHandler('refunds')}>Refund Details</li>
+            <li className={activeTab === 'serviceproviders'? 'active-tab': ""} onClick={() => routeHandler('serviceproviders')}>Service Providers</li>
             <li className={activeTab === 'reports'? 'active-tab': ""} onClick={() => routeHandler('reports')}>User Reports</li>
             {/* <li className={activeTab === 'notifications'? 'active-tab': ""} onClick={() => routeHandler('notifications')}>Notifications</li> */}
           </ul>
@@ -208,6 +210,7 @@ const formatPrice = (amount) => {
         {route === 'held-payment' && <div><HeldPayments formatPrice={formatPrice}/></div>}
         {route === 'payment' && <div><PaymentDetails formatPrice={formatPrice}/></div>}
         {route === 'refunds' && <div><GetRefund /></div>}
+        {route === 'serviceproviders' && <div><ServiceProviders url={url} token={token}/></div>}
         {route === 'reports' && <div><Report url={url} token={token}/></div>}
         {/* {route === 'notifications' && <div>Notifications</div>} */}
         {route === 'dashboard' && <div className="dashboard-overview">

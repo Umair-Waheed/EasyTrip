@@ -21,7 +21,21 @@ const serviceProviderSchema = new mongoose.Schema(
       enum: ["hotel", "transport", "guide"],
       // required: true
     },
-
+    businessName: {
+      type: String,
+      required: true,
+    },
+    registrationNumber: {
+      type: String,
+      unique: true,
+    },
+    bankAccount: {
+      type: String,
+    },
+    accountNumber: {
+      type: String,
+      unique: true,
+    },
     location: {
       type: String,
       // required: true
@@ -37,6 +51,24 @@ const serviceProviderSchema = new mongoose.Schema(
       sparse: true,
     },
     image: {
+      url: String,
+      filename: String,
+    },
+    governmentId: {
+      url: String,
+      filename: String,
+    },
+
+    guideCertificate: {
+      url: String,
+      filename: String,
+    },
+
+    driverLicense: {
+      url: String,
+      filename: String,
+    },
+    hotelLicense: {
       url: String,
       filename: String,
     },
@@ -69,6 +101,14 @@ const serviceProviderSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+
+    status: {
+      type: String,
+      enum: ["new", "pending", "approved", "rejected"],
+      default: "new",
+    },
+    resetToken: { type: String },
+    resetTokenExpiry: { type: Date },
 
     createdAt: {
       type: Date,

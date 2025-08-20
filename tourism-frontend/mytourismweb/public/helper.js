@@ -1,7 +1,5 @@
 import axios from "axios";
-const url="https://easytrip-production.up.railway.app/";
-
-const destination = async (setHomeDestination) => {  
+const url="http://localhost:4000/"
 // let url="http://localhost:4000/"
 const destination = async (setHomeDestination) => {
   try {
@@ -60,6 +58,6 @@ const guide = async (setHomeGuide) => {
     console.log(error);
   }
 };
-}
+
 
 export { destination, transport, hotel, guide }

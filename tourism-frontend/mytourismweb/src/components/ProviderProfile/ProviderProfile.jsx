@@ -241,7 +241,7 @@ const ProviderProfile = ({ providerData,setProviderData}) => {
               <div className="provider-personal-information">
           <img src={providerData?.image && providerData.image.url !== "" ? providerData.image.url : assets.profile_icon} alt="Profile" className="profile-img" />
                 <div className="provider-personal-info">
-                  <h2>{providerData.name?.charAt(0).toUpperCase() + providerData.name?.slice(1)}</h2>
+                  <h2>{providerData.businessName?.charAt(0).toUpperCase() + providerData?.businessName.slice(1)}</h2>
                   <span>
                     <p className='provider-role '>{providerData.serviceType?.charAt(0).toUpperCase() + providerData.serviceType?.slice(1)}</p>
                     <i className="fa-solid fa-location-dot"> </i>{providerData.location?.charAt(0).toUpperCase() + providerData.location?.slice(1)}

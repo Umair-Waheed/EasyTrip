@@ -14,7 +14,10 @@ const ProviderPayments = ({providerId,formatPrice}) => {
             try {
                 setLoading(true);
                 const response = await axios.get(`${url}api/payment/provider/${providerId}`, {
-                    headers: { authorization: `Bearer ${token}` },
+                headers: {
+                    authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
                 });
                 if (response.data.success) {
                     console.log(response.data);

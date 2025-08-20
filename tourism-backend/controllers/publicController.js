@@ -8,13 +8,13 @@ const getDestListings = async (req,res)=>{
         const destListings=await destListingModel.find({});
 
         if(!destListings){
-            res.json({success:false,message:"Destinations listings not found"})
+           return res.json({success:false,message:"Destinations listings not found"})
         }
 
-        res.json({success:true,destListings});
+       return res.json({success:true,destListings});
         
     } catch (error) {
-        res.json({success:false,message:"Destinations not Fetching"});
+       return res.json({success:false,message:"Destinations not Fetching"});
         
     }
 
@@ -30,9 +30,9 @@ const getDestinationDetail = async (req, res) => {
             return res.json({ success: false, message: "listing not found" });
         }
 
-        res.json({ success: true, listing });
+       return res.json({ success: true, listing });
     } catch (error) {
-        res.json({ success: false, message:"Error in fetdhing details" });
+      return res.json({ success: false, message:"Error in fetdhing details" });
     }
 };
 
@@ -46,10 +46,10 @@ const getHotelListings = async (req, res) => {
             return res.json({ success: false, message: "Hotel listings not found" });
         }
 
-        res.json({ success: true, listing });
+       return res.json({ success: true, listing });
 
     } catch (error) {
-        res.json({ success: false, message:"Error in getting listings" });
+       return res.json({ success: false, message:"Error in getting listings" });
     }
 };
 
@@ -65,9 +65,9 @@ const getHotelDetail=async(req,res)=>{
                 return res.json({ success: false, message: "listing not found" });
             }
     
-            res.json({ success: true, listing });
+           return res.json({ success: true, listing });
         } catch (error) {
-            res.json({ success: false, message:"Error in fetdhing details" });
+           return res.json({ success: false, message:"Error in fetdhing details" });
         }
 }
 
@@ -80,10 +80,10 @@ const getTransportListings = async (req, res) => {
             return res.json({ success: false, message: "Transport listings not found" });
         }
 
-        res.json({ success: true, listing });
+       return res.json({ success: true, listing });
 
     } catch (error) {
-        res.json({ success: false, message:"Error in getting listings" });
+       return res.json({ success: false, message:"Error in getting listings" });
     }
 };
 
@@ -98,9 +98,9 @@ const getTransportDetail = async (req, res) => {
             return res.json({ success: false, message: "listing not found" });
         }
 
-        res.json({ success: true, listing });
+      return res.json({ success: true, listing });
     } catch (error) {
-        res.json({ success: false, message:"Error in fetching details" });
+       return res.json({ success: false, message:"Error in fetching details" });
     }
 };
 //get guide listing
@@ -112,10 +112,10 @@ const getGuideListings = async (req, res) => {
             return res.json({ success: false, message: "Guide listings not found" });
         }
 
-        res.json({ success: true, listing });
+       return res.json({ success: true, listing });
 
     } catch (error) {
-        res.json({ success: false, message:"Error in getting listings" });
+       return res.json({ success: false, message:"Error in getting listings" });
     }
 };
 
@@ -129,9 +129,9 @@ const getGuideDetail = async (req, res) => {
             return res.json({ success: false, message: "listing not found" });
         }
 
-        res.json({ success: true, listing });
+       return res.json({ success: true, listing });
     } catch (error) {
-        res.json({ success: false, message:"Error in fetching details" });
+       return res.json({ success: false, message:"Error in fetching details" });
     }
 };
 

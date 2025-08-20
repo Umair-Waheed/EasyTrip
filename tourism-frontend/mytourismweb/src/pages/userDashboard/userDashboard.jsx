@@ -86,7 +86,7 @@ const logoutHandler=()=>{
       try {
         const response = await axios.put(
           `${url}api/notifications/mark-as-read`,
-          {}, // No body needed, so pass an empty object
+          {}, 
           {
             headers: {
               authorization: `Bearer ${token}`,

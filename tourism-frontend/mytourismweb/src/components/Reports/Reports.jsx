@@ -11,6 +11,7 @@ const UserReports = ({ url, token }) => {
       const decodeToken = JSON.parse(atob(token.split(".")[1]));
       userId = decodeToken.id;
     }
+    console.log(userId)
     const fetchReports = async () => {
       try {
         const res = await axios.get(`${url}api/reports/user/${userId}`, {

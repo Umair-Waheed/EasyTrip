@@ -188,10 +188,10 @@ try{
 
     await newBooking.save();
     
-    res.json({ success: true, message: "Service booking successfully!", newBooking });
+    return res.json({ success: true, message: "Service booking successfully!", newBooking });
 
 }catch(error){
-    res.json({ success: false, message: "Create booking error",message:error.message });
+    return res.json({ success: false, message: "Create booking error",message:error.message });
 
 }
 };
@@ -270,9 +270,9 @@ const getAllBookings = async (req, res) => {
         if(bookings.length === 0){
             return res.json({ success: false, message: "No booking found" });
         }
-        res.json({ success: true, bookings });
+        return res.json({ success: true, bookings });
     } catch (error) {
-        res.json({ success: false, message: "Error in fetching bookings" });
+        return res.json({ success: false, message: "Error in fetching bookings" });
     }
 };
 
@@ -287,9 +287,9 @@ const getSpecificBooking = async (req, res) => {
         if(booking.length === 0){
             return res.json({ success: false, message: "No booking found" });
         }
-        res.json({ success: true, booking });
+        return res.json({ success: true, booking });
     } catch (error) {
-        res.json({ success: false, message: "Error in fetching booking" });
+        return res.json({ success: false, message: "Error in fetching booking" });
     }
 };
 
@@ -309,9 +309,9 @@ const getUserBookings = async (req, res) => {
         if(bookings.length === 0){
             return res.json({ success: false, message: "No booking found" });
         }
-        res.json({ success: true, bookings });
+       return res.json({ success: true, bookings });
     } catch (error) {
-        res.json({ success: false, message: "Error in fetching bookings",message:error.message });
+       return res.json({ success: false, message: "Error in fetching bookings",message:error.message });
     }
 };
 
@@ -324,9 +324,9 @@ const getProviderBookings = async (req, res) => {
         if(bookings.length === 0){
             return res.json({ success: false, message: "No booking found" });
         }
-        res.json({ success: true, bookings });
+       return res.json({ success: true, bookings });
     } catch (error) {
-        res.json({ success: false, message: error.message });
+       return res.json({ success: false, message: error.message });
     }
 };
 
@@ -357,10 +357,10 @@ const createCheckoutSession = async (req, res) => {
       cancel_url: `http://localhost:5173/payment-cancel`,
     });
 
-    res.json({ url: session.url });
+   return res.json({ url: session.url });
   } catch (error) {
     console.error("Stripe session error:", error);
-    res.json({ success: false, message: "Stripe session error", error: error.message });
+   return res.json({ success: false, message: "Stripe session error", error: error.message });
   }
 };
 
@@ -398,10 +398,10 @@ const updateBookingPayment = async (req, res) => {
   
       await booking.save();
   
-      res.json({ success: true, message: "Payment recorded successfully", booking });
+    return res.json({ success: true, message: "Payment recorded successfully", booking });
     } catch (error) {
       console.error("Error updating payment:", error);
-      res.json({ success: false, message: "Server error", error: error.message });
+     return res.json({ success: false, message: "Server error", error: error.message });
     }
   };
 
@@ -413,9 +413,9 @@ try{
         return res.json({ success: false, message: "Booking not found." });
     }
     await booking.deleteOne();
-    res.json({ success: true, message: "Booking deleted successfully!" });
+   return res.json({ success: true, message: "Booking deleted successfully!" });
 }catch(error){
-    res.json({ success: false, message: "Error in deleting booking",message:error.message });
+   return res.json({ success: false, message: "Error in deleting booking",message:error.message });
 
 }
 }

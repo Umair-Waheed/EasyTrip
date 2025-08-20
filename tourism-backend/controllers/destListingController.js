@@ -6,13 +6,13 @@ const getDestListings = async (req,res)=>{
         const destListings=await destListingModel.find({});
 
         if(!destListings){
-            res.json({success:false,message:"Destinations not found"})
+          return res.json({success:false,message:"Destinations not found"})
         }
 
-        res.json({success:true,destListings});
+      return res.json({success:true,destListings});
         
     } catch (error) {
-        res.json({success:false,message:"Destinations not Fetching"});
+       return res.json({success:false,message:"Destinations not Fetching"});
         
     }
 
@@ -65,10 +65,10 @@ const addDestListing=async(req,res)=>{
         });
 
         await newDestination.save();
-        res.json({success:true,message:"Destination added successfully!"})
+       return res.json({success:true,message:"Destination added successfully!"})
 
     }catch(error){
-        res.json({success:false,message:"Error:Destination not added",message:error.message});
+       return res.json({success:false,message:"Error:Destination not added",message:error.message});
     }
 
 }
@@ -84,9 +84,9 @@ const getListingDetail = async (req, res) => {
             return res.json({ success: false, message: "listing not found" });
         }
 
-        res.json({ success: true, listing });
+       return res.json({ success: true, listing });
     } catch (error) {
-        res.json({ success: false, message:"Error in fetdhing details" });
+       return res.json({ success: false, message:"Error in fetdhing details" });
     }
 };
 
@@ -111,10 +111,10 @@ const editDestListing = async (req, res) => {
       destination.images = images || destination.images;
   
       await destination.save();
-      res.json({ success: true, message: "Destination updated successfully!", destination });
+     return res.json({ success: true, message: "Destination updated successfully!", destination });
     } catch (error) {
       
-      resjson({ success: false, message: "Error:Destination not updated" });
+     return resjson({ success: false, message: "Error:Destination not updated" });
     }
   };
 
@@ -127,7 +127,7 @@ const editDestListing = async (req, res) => {
             // console.log(listing._id);
             
             if(!listing){
-                res.json({success:false,message:"Listing not found"});
+              return res.json({success:false,message:"Listing not found"});
             }
             // console.log("useris "+ req.user);
             const getProviderId=req.user.id.toString();
@@ -138,11 +138,11 @@ const editDestListing = async (req, res) => {
             }
             await reviewModel.findOneAndDelete(listing.reviewOwner);
             await destListingModel.deleteOne({ _id: id });
-            res.json({success:true,message:"Listing delete successfully!"})
+           return res.json({success:true,message:"Listing delete successfully!"})
     
         }catch(error){
             console.log(error);
-            res.json({success:false,message:"Listing delete error"});
+           return res.json({success:false,message:"Listing delete error"});
         }
     }
 

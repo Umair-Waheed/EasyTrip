@@ -50,7 +50,7 @@ const userRegister=async(req,res)=>{
     `;
 
     await sendEmail(email, "verify your EasyTrip account", emailContent);
-    res.json({ success: true, message: "Verification email sent. Please check your inbox." });
+    return res.json({ success: true, message: "Verification email sent. Please check your inbox." });
    
    
        }catch(error){
@@ -117,7 +117,7 @@ return res.send(`
     // res.json({ success: true, message: "Email verified successfully" });
   } catch (err) {
     console.error(err);
-    res.json({ success: false, message: "Invalid or expired token" });
+    return res.json({ success: false, message: "Invalid or expired token" });
   }
 };
 
@@ -147,13 +147,68 @@ const userLogin=async(req,res)=>{
 
 const userSignout=async(req,res)=>{
     try{
-        res.clearCookie('token');
-        res.json({success:true,message:"Signout successfully!"});
+        return res.clearCookie('token');
+        return res.json({success:true,message:"Signout successfully!"});
     }catch(error){
-        res.json({success:false,message:"Signout error"})
+        return res.json({success:false,message:"Signout error"})
     }
 
 }
+
+const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await userModel.findOne({ email });
+
+    if (!user){
+       return res.json({success:false, message: "user not found" });
+    }
+    // Generate token
+    const resetToken = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET, 
+      { expiresIn: "1h" }
+    );
+
+    const resetUrl = `http://localhost:5173/reset-password/user/${resetToken}`;
+
+    await sendEmail(
+      user.email,
+      "Password Reset",
+      `<p>Click the link below to reset your password:</p>
+       <a href="${resetUrl}">${resetUrl}</a>
+       <p>This link will expire in 1 hour.</p>`
+    );
+
+    return res.json({success:true, message: "Password reset link sent to your email" });
+  } catch (err) {
+    return res.json({success:false, message: err.message });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  try {
+    const { token } = req.params;
+    const { password } = req.body;
+    console.log(password);
+    // verify JWT
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await userModel.findById(decoded.id);
+    console.log(user);
+
+    if (!user){
+       return res.json({success:false, message: "user not found" });
+    }
+    // new password
+user.password = password;
+await user.save();
+    console.log(user);
+
+    return res.json({success:true, message: "Password reset successful. Please go to website and login again" });
+  } catch (err) {
+    return res.json({success:false, message: "Invalid or expired token" });
+  }
+};
 
 const getUserData = async (req, res) => {
     const userId = req.params.id;
@@ -211,4 +266,4 @@ const deleteUser = async (req, res) => {
     }
 };
 
-export {userRegister,verifyEmail,userLogin,userSignout,getUserData,addUpdateUserInfo,deleteUser};
+export {userRegister,verifyEmail,userLogin,userSignout,forgotPassword,resetPassword,getUserData,addUpdateUserInfo,deleteUser};

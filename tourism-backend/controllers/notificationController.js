@@ -6,9 +6,9 @@ const getNotification=async(req,res)=>{
     // console.log(req.user.id) // Assuming you're using a middleware to decode JWT
     const notifications = await notificationModel.find({ userId }).sort({ createdAt: -1 }).limit(10);
     // console.log(notifications);
-    res.json({ success: true, notifications });
+   return res.json({ success: true, notifications });
   } catch (err) {
-    res.json({ success: false, message: "Failed to fetch notifications." });
+   return res.json({ success: false, message: "Failed to fetch notifications." });
   }
 }
 
@@ -17,10 +17,10 @@ const unreadNotification=async(req,res)=>{
      const userId=req.user.id;
     const count=await notificationModel.countDocuments({userId,read:false});
 
-    res.json({ success: true, count });
+   return res.json({ success: true, count });
 
   } catch (err) {
-    res.json({ success: false, message: "Failed to fetch unread notifications." });
+   return res.json({ success: false, message: "Failed to fetch unread notifications." });
   }
   
 }
@@ -30,10 +30,10 @@ const readNotification=async(req,res)=>{
      console.log(userId);
     await notificationModel.updateMany({userId,read:false},{read:true, readAt: new Date()});
 
-    res.json({ success: true, message: "Notifications marked as read." });
+   return res.json({ success: true, message: "Notifications marked as read." });
 
   } catch (err) {
-    res.json({ success: false, message: "Failed to marked notifications as read." });
+   return res.json({ success: false, message: "Failed to marked notifications as read." });
   }
   
 }

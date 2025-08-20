@@ -187,4 +187,62 @@ console.log("delete"+ successfulUploads);
     res.json({ success: false, message: "Image processing failed" });
   }
 };
-export {hotelImage,transportImage,guideImage}
+// const uploadProviderImages = async (files, providerType) => {
+//   try {
+//     const uploadedImages = {};
+
+//     // Loop through each field (e.g., governmentId, profile, certificate, etc.)
+//     for (const field in files) {
+//       const file = files[field][0]; // single file per field
+
+//       const result = await cloudinary.uploader.upload(file.path, {
+//         folder: `${providerType}`,
+//         public_id: `${providerType}-${field}-${Date.now()}-${Math.random()
+//           .toString(36)
+//           .slice(2, 8)}`,
+//         resource_type: "image",
+//       });
+
+//       uploadedImages[field] = {
+//         url: result.secure_url,
+//         filename: result.public_id, // needed if you want to delete later
+//       };
+//     }
+
+//     return uploadedImages;
+//   } catch (error) {
+//     console.error("Error uploading provider images:", error);
+//     throw new Error("Image upload failed");
+//   }
+// };
+
+const providerImageUpload = async (req, res, next) => {
+  try {
+    if (!req.files) return next();
+
+    req.uploadedImages = {};
+
+    const fileFields = ["image", "governmentId", "guideCertificate", "driverLicense", "hotelLicense"];
+
+    for (const field of fileFields) {
+      if (req.files[field]) {
+        const file = req.files[field][0]; // single file
+        const result = await cloudinary.uploader.upload(file.path, {
+          folder: `providers/${field}`,
+        });
+
+        req.uploadedImages[field] = {
+          url: result.secure_url,
+          public_id: result.public_id,
+        };
+      }
+    }
+
+    next();
+  } catch (error) {
+    console.error("Cloudinary upload error:", error);
+    return res.status(500).json({ success: false, message: "Image upload failed", error: error.message });
+  }
+};
+
+export {hotelImage,transportImage,guideImage,providerImageUpload}

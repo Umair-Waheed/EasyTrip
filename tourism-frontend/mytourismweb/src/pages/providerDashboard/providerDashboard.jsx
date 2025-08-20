@@ -328,7 +328,7 @@ if(loading){
             </div>
             <div className="provider-dashboard-card">
               <h4>Total Bookings</h4>
-              <p>+{booking.length}</p> 
+              <p>+{booking?.length}</p> 
             </div>
             {/* <div className="provider-dashboard-card">
               <h4> Total Bookings</h4>

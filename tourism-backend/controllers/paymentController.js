@@ -87,10 +87,10 @@ const createPayment = async (req, res) => {
     await user.save();
     await booking.save();
     await payment.save(); 
-    res.json({ success:true, message: 'Payment successfull.', payment });
+    return res.json({ success:true, message: 'Payment successfull.', payment });
   } catch (error) {
     console.error(error);
-    res.json({ success:false, message: 'Error creating payment' });
+    return res.json({ success:false, message: 'Error creating payment' });
   }
 };
 const getProviderPayments=async(req,res)=>{
@@ -99,18 +99,18 @@ const getProviderPayments=async(req,res)=>{
     // console.log(providerId);
   const isProvider=await ServiceProvider.findById(providerId);
   if(!isProvider){
-    res.json({success:false,message:"ServiceProvider not found!"});
+    return res.json({success:false,message:"ServiceProvider not found!"});
   }
   // console.log(isProvider)
 
   const payments=await Payment.find({provider:providerId});
   if(!payments || payments.length===0){
-    res.json({success:false,message:"ServiceProvider Payment details not found!"});
+   return res.json({success:false,message:"ServiceProvider Payment details not found!"});
   }
-  res.json({success:true,payments});
+  return res.json({success:true,payments});
 }catch(error){
   console.log(error);
-    res.json({success:false,message:error});
+    return res.json({success:false,message:error});
 
 }}
 
@@ -122,18 +122,18 @@ const getUserPayments=async(req,res)=>{
   try{
   const isUser=await User.findById(userId);
   if(!isUser){
-    res.json({success:false,message:"User not found!"});
+    return res.json({success:false,message:"User not found!"});
   }
 
   const payments=await Payment.find({user:userId});
   if(!payments){
-    res.json({success:false,message:"User Payment details not found!"});
+    return res.json({success:false,message:"User Payment details not found!"});
   }
 
-  res.json({success:true,payments});
+  return res.json({success:true,payments});
 }catch(error){
   console.log(error);
-    res.json({success:false,message:error});
+    return res.json({success:false,message:error});
 
 }
 
@@ -145,14 +145,14 @@ const getAllPayments=async(req,res)=>{
     const payments=await Payment.find({});
     
       if(!payments){
-        res.json({success:false,message:"payments not found!"})
+        return res.json({success:false,message:"payments not found!"})
         }
     
-      res.json({success:true,payments}); 
+      return res.json({success:true,payments}); 
     
   } catch (error) {
     console.log(error);
-    res.json({success:false,message:error});
+    return res.json({success:false,message:error});
 
   }
 }
