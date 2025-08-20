@@ -18,7 +18,7 @@ const ResetPassword = ({ url }) => {
 
       if (res.data.success) {
         setTimeout(() => {
-          window.location.href = "http://localhost:5173/";
+          window.location.href = "https://easy-trip-frontend-01.vercel.app/";
         }, 2000);
       }
     } catch (err) {
