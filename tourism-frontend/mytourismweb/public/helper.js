@@ -1,5 +1,5 @@
 import axios from "axios";
-const url="http://localhost:4000/"
+const url="https://easytrip-production.up.railway.app/"
 // let url="http://localhost:4000/"
 const destination = async (setHomeDestination) => {
   try {
