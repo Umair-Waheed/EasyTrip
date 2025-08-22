@@ -101,12 +101,12 @@ const [paymentId, setPaymentId] = useState('');
         <input
           type="hidden"
           name="return_url"
-          value="http://localhost:5174/admin/held-payment"
+          value="https://easy-trip-admin.vercel.app/admin/dashboard/held-payment"
         />
         <input
           type="hidden"
           name="cancel_url"
-          value="http://localhost:5174/admin/held-payment"
+          value="https://easy-trip-admin.vercel.app/admin/dashboard/held-payment"
         />
         <input type="hidden" name="amount" value={amount} />
                 <input type="hidden" name="item_name" value={"Tranfser to Provider"} />
