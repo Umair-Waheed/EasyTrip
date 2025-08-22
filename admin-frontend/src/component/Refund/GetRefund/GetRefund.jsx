@@ -167,12 +167,12 @@ const [refundId, setRefundId] = useState('');
         <input
           type="hidden"
           name="return_url"
-          value="http://localhost:5174/admin/refunds"
+          value="https://easy-trip-admin.vercel.app/admin/dashboard/refunds"
         />
         <input
           type="hidden"
           name="cancel_url"
-          value="http://localhost:5174/admin/refunds"
+          value="https://easy-trip-admin.vercel.app/admin/dashboard/refunds"
         />
         <input type="hidden" name="amount" value={amount} />
                 <input type="hidden" name="item_name" value={"Refund"} />
