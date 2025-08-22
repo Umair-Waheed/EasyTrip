@@ -353,8 +353,8 @@ const createCheckoutSession = async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: `http://localhost:5173/payment-success/${bookingId}`,
-      cancel_url: `http://localhost:5173/payment-cancel`,
+      success_url: `https://easy-trip-frontend-01.vercel.app/payment-success/${bookingId}`,
+      cancel_url: `https://easy-trip-frontend-01.vercel.app/payment-cancel`,
     });
 
    return res.json({ url: session.url });
