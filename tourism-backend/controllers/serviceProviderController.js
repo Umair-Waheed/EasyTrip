@@ -56,7 +56,7 @@ const serviceProviderRegister=async(req,res)=>{
     `;
 
     await sendEmail(email, "verify your EasyTrip account", emailContent);
-    res.json({ success: true, message: "Verification email sent. Please check your inbox." });
+    return res.json({ success: true, message: "Verification email sent. Please check your inbox." });
    
    
        }catch(error){
@@ -122,7 +122,7 @@ return res.send(`
     // res.json({ success: true, message: "Email verified successfully" });
   } catch (err) {
     console.error(err);
-    res.json({ success: false, message: "Invalid or expired token" });
+    return res.json({ success: false, message: "Invalid or expired token" });
   }
 };
 
