@@ -194,12 +194,12 @@ const PaymentForm = () => {
         <input
           type="hidden"
           name="return_url"
-          value="http://localhost:5173/user/bookingRequests"
+          value="https://easy-trip-frontend-01.vercel.app/user/bookingRequests"
         />
         <input
           type="hidden"
           name="cancel_url"
-          value="http://localhost:5173/user/bookingRequests"
+          value="https://easy-trip-frontend-01.vercel.app/user/bookingRequests"
         />
         <input type="hidden" name="amount" value={amount} />
         <input type="hidden" name="item_name" value={serviceType} />
