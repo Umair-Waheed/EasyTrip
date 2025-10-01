@@ -39,12 +39,25 @@ This system allows **tourists** to explore destinations, book hotels, transport,
 
 ## 🛠️ Tech Stack
 
+![MongoDB](https://img.shields.io/badge/MongoDB-4DB33D?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
 - **Frontend:** React.js, TailwindCSS (for UI styling), Axios
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (Mongoose ODM)
 - **Authentication:** JWT (JSON Web Tokens), bcrypt.js
 - **Maps API:** MapBox API (for location & distance calculation)
 - **Notifications:** Custom notification system
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Homepage
+![Homepage](./tourism-frontend/mytourismweb/src/assets/Screenshot%20(14).png)
 
 ---
 
